@@ -13,6 +13,7 @@ export interface ISendCandidate {
 export interface IResultItem {
     key: string,
     title: string,
+    intro: string,
     resourceTypes: IType[],
     researchActivities: IActivity[],
     researchDomains: IDomain[]
@@ -29,8 +30,6 @@ export interface IDomain {
 export interface IType {
     type: string
 }
-
-
 
 export interface IDetail {
     field: string,
