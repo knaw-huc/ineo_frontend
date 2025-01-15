@@ -14,6 +14,7 @@ export interface IResultItem {
     key: string,
     title: string,
     intro: string,
+    tags: string[] | [] | null,
     resourceTypes: IType[],
     researchActivities: IActivity[],
     researchDomains: IDomain[]
