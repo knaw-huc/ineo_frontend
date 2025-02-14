@@ -1,0 +1,148 @@
+.detail-page {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+.right-panel {
+    flex: 0 0 35%;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.left-panel {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.right-panel h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.right-panel p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.left-panel .dataset-type span {
+    display: inline-block;
+    background-color: #D3DCFF;
+    padding: 5px 10px;
+    text-align: center;
+    font-family: sans sans-serif;
+}
+
+.goto-button {
+    width: 100%;
+    background-color: #ff275e;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    text-transform: uppercase;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.goto-button .button-label {
+    color: white;
+    cursor: pointer;
+    font-family: sans sans-serif;
+    font-weight: +1;
+}
+
+.goto-button .button-icon {
+    margin-left: 8px;
+    width: 16px;
+    height: 16px;
+}
+
+.properties {
+    margin-top: 15px;
+}
+
+.properties h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.properties ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.properties ul li {
+    margin-bottom: 8px;
+}
+
+.properties ul li strong {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.properties ul li a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.properties ul li a:hover {
+    text-decoration: underline;
+}
+
+.tabs {
+    margin-top: 20px;
+}
+
+.tab-list {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.tab-list li {
+    padding: 10px 20px;
+    cursor: pointer;
+    border-bottom: none;
+    margin-right: 5px;
+    transition: background-color 0.3s, border-color 0.3s;
+    font-weight: bold;
+    color: #333;
+}
+
+.tab-list li.active {
+    border-bottom: 4px solid #2350ff;
+    font-weight: bold;
+    color: #2350ff;
+}
+
+.tab-list li:hover {
+    border-bottom: 4px solid #2350ff;
+    color: #2350ff;
+    /*border-color: #ccc;*/
+}
+
+.tab-content {
+    padding: 20px;
+    border: none;
+    /*border-top: none;*/
+    background-color: #fff;
+}
