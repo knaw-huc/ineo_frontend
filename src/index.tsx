@@ -18,7 +18,7 @@ import ListItem from "./components/listItem";
 import {Detail} from "./components/detail";
 import {Header} from "./components/pageHeader";
 
-const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000';
+const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://service:8000';
 const header = <Header/>
 const searchLoader = createSearchLoader(searchUtils.getSearchObjectFromParams, `${backendUrl}/browse`, 10);
 const title = 'Ineo Browser';
