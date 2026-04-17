@@ -218,3 +218,45 @@
   /*border-top: none;*/
   background-color: #fff;
 }
+
+.hcReportLink {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.75rem;
+  color: #aaa;
+  text-decoration: none;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.hcReportLink::before {
+  content: "Issues or feedback? Contact us: ";
+}
+
+.hcReportLink:hover {
+  color: #666;
+  text-decoration: underline;
+}
+
+.search-report-link {
+  max-width: 1200px;
+  margin: -2rem auto 0;
+  padding: 0 2rem 1rem;
+  text-align: right;
+}
+
+.search-report-link .hcReportLink {
+  margin-top: 0;
+  padding-bottom: 0;
+  text-align: right;
+}
+
+.detail-report-link {
+  margin-top: 16px;
+}
+
+.detail-report-link .hcReportLink {
+  margin-top: 0;
+  padding-bottom: 0;
+  text-align: left;
+}

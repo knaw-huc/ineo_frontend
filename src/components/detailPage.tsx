@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import ReactMarkdown from 'react-markdown';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { ReportLink } from './reportLink';
 
 const skippableFields = ["resourceTypes", "status"];
 
@@ -194,6 +195,7 @@ const DetailPage: React.FC<DetailPageProps> = ({ data }) => {
                             {renderProperties(item.document.properties)}
                         </ul>
                     </div>
+                    <div className="detail-report-link"><ReportLink /></div>
                 </div>
             </div>
             {/*<pre>{JSON.stringify(item, null, 2)}</pre>*/}

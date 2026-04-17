@@ -17,6 +17,7 @@ import Facets from "./components/facets";
 import ListItem from "./components/listItem";
 import {Detail} from "./components/detail";
 import {Header} from "./components/pageHeader";
+import {ReportLink} from "./components/reportLink";
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://service:8000';
 const header = <Header/>
@@ -30,10 +31,10 @@ const routeObject: RouteObject = {
         {
             index: true,
             loader: async ({request}) => searchLoader(new URL(request.url).searchParams),
-            element: <Search title={title} pageLength={30} withPaging={true}
+            element: <><Search title={title} pageLength={30} withPaging={true}
                              hasIndexPage={false} showSearchHeader={false} updateDocumentTitle={false}
                              searchParams={SearchParams.PARAMS} FacetsComponent={Facets}
-                             ResultItemComponent={ListItem}/>
+                             ResultItemComponent={ListItem}/><div className="search-report-link"><ReportLink /></div></>
         }, {
             path: '/detail/:id',
             loader: async ({params}) => detailLoader(params.id as string),
