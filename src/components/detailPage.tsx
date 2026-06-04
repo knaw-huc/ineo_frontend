@@ -113,7 +113,7 @@ function renderProperties(properties: any) {
                     </span>
                 ));
             } else if (typeof value[0] === 'string') {
-                content = value.join('\n');
+                content = value.join(', ');
             }
 
             if (content) {
