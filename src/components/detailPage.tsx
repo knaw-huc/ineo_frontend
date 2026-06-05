@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import ReactMarkdown from 'react-markdown';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
@@ -131,6 +131,23 @@ function renderProperties(properties: any) {
 const DetailPage: React.FC<DetailPageProps> = ({ data }) => {
     const [activeTab, setActiveTab] = useState<string>('overview');
 
+    // Memoize nonEmptyTabs to prevent unnecessary re-renders
+    const nonEmptyTabs = useMemo(() => {
+        if (isErrorData(data)) {
+            return [];
+        }
+        return Object.keys(data[0].document.tabs)
+            .filter((tabKey) => data[0].document.tabs[tabKey].body && data[0].document.tabs[tabKey].body.trim() !== '')
+            .reverse();
+    }, [data]);
+
+    useEffect(() => {
+        if (nonEmptyTabs.length > 0 && !nonEmptyTabs.includes(activeTab)) {
+            setActiveTab(nonEmptyTabs[0]);
+        }
+    }, [activeTab, nonEmptyTabs]);
+
+    // Early return for error state
     if (isErrorData(data)) {
         return (
             <div>
@@ -139,7 +156,9 @@ const DetailPage: React.FC<DetailPageProps> = ({ data }) => {
             </div>
         );
     }
+
     const item = data[0];
+
 
     return (
         <>
@@ -161,7 +180,7 @@ const DetailPage: React.FC<DetailPageProps> = ({ data }) => {
                     )}
                     <div className="tabs">
                         <ul className="tab-list">
-                            {Object.keys(item.document.tabs).slice().reverse().map((tabKey) => (
+                            {nonEmptyTabs.map((tabKey) => (
                                 <li
                                     key={tabKey}
                                     className={activeTab === tabKey ? 'active' : ''}
@@ -172,7 +191,9 @@ const DetailPage: React.FC<DetailPageProps> = ({ data }) => {
                             ))}
                         </ul>
                         <div className="tab-content">
-                            <ReactMarkdown>{item.document.tabs[activeTab].body}</ReactMarkdown>
+                            {activeTab && item.document.tabs[activeTab] && (
+                                <ReactMarkdown>{item.document.tabs[activeTab].body}</ReactMarkdown>
+                            )}
                         </div>
                     </div>
                 </div>
