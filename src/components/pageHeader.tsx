@@ -1,10 +1,4 @@
-import React from 'react';
-import {useNavigate, Link} from "react-router-dom";
-import logo from '../assets/img/logo.png';
-
-
 export function Header() {
-    const nav = useNavigate();
     return (
         <div>
             {/*<div className="hcContentContainer bgColorBrand1 hcMarginBottom5">*/}

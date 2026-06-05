@@ -1,10 +1,8 @@
-import React from 'react';
 import './index.css';
 import './App.css';
 import ReactDOM from 'react-dom/client';
 import {
     App,
-    PageHeader,
     Search,
     Detail as BrowserDetail,
     createSearchLoader,
@@ -12,14 +10,14 @@ import {
     searchUtils,
     SearchParams,
 } from '@knaw-huc/browser-base-react';
-import {createHashRouter, createBrowserRouter, RouteObject, RouterProvider} from 'react-router-dom';
+import {createHashRouter, RouteObject, RouterProvider} from 'react-router-dom';
 import Facets from "./components/facets";
 import ListItem from "./components/listItem";
 import {Detail} from "./components/detail";
 import {Header} from "./components/pageHeader";
 import {ReportLink} from "./components/reportLink";
 
-const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://service:8000';
+const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://service:8000';
 const header = <Header/>
 const searchLoader = createSearchLoader(searchUtils.getSearchObjectFromParams, `${backendUrl}/browse`, 10);
 const title = 'Ineo Browser';
@@ -47,7 +45,5 @@ const routeObject: RouteObject = {
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-    <React.StrictMode>
-            <RouterProvider router={createHashRouter([routeObject])}/>
-    </React.StrictMode>
+    <RouterProvider router={createHashRouter([routeObject])}/>
 );

@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
-import {FreeTextFacet, SliderFacet, FacetsParams, ListFacet, useListFacet} from '@knaw-huc/browser-base-react';
-import { fetchConceptName } from '../utils';
+import {FreeTextFacet, FacetsParams, ListFacet} from '@knaw-huc/browser-base-react';
 
 export default function Facets({registerFacet, unregisterFacet, setFacet, searchValues}: FacetsParams) {
-    const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000';
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
 
     return <>
         {/*TODO: move this to right panel*/}
